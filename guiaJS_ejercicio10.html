@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 10</title>
+</head>
+<body>
+    <h1>Ejercicio 10</h1>
+    <p>Introduce las edades de los estudiantes de la mañana:</p>
+    <input type="number" name="number" id="m-age1" placeholder="Ej. 12">
+    <input type="number" name="number" id="m-age2" placeholder="Ej. 12">
+    <input type="number" name="number" id="m-age3" placeholder="Ej. 12">
+    <input type="number" name="number" id="m-age4" placeholder="Ej. 12">
+    <input type="number" name="number" id="m-age5" placeholder="Ej. 12">
+
+    <p>Introduce las edades de los estudiantes de la tarde:</p>
+    <input type="number" name="number" id="a-age1" placeholder="Ej. 12">
+    <input type="number" name="number" id="a-age2" placeholder="Ej. 12">
+    <input type="number" name="number" id="a-age3" placeholder="Ej. 12">
+    <input type="number" name="number" id="a-age4" placeholder="Ej. 12">
+    <input type="number" name="number" id="a-age5" placeholder="Ej. 12">
+    <input type="number" name="number" id="a-age6" placeholder="Ej. 12">
+
+    <p>Introduce las edades de los estudiantes de la noche:</p>
+    <input type="number" name="number" id="n-age1" placeholder="Ej. 12">
+    <input type="number" name="number" id="n-age2" placeholder="Ej. 12">
+    <input type="number" name="number" id="n-age3" placeholder="Ej. 12">
+    <input type="number" name="number" id="n-age4" placeholder="Ej. 12">
+    <input type="number" name="number" id="n-age5" placeholder="Ej. 12">
+    <input type="number" name="number" id="n-age6" placeholder="Ej. 12">
+    <input type="number" name="number" id="n-age7" placeholder="Ej. 12">
+    <input type="number" name="number" id="n-age8" placeholder="Ej. 12">
+    <input type="number" name="number" id="n-age9" placeholder="Ej. 12">
+    <input type="number" name="number" id="n-age10" placeholder="Ej. 12">
+    <input type="number" name="number" id="n-age11" placeholder="Ej. 12">
+
+    <button onclick="CalculateNumbers()">Calcular</button>
+
+    <p id="result"></p>
+
+    <script>
+        function CalculateNumbers(){
+            const mage1 = parseInt(document.getElementById('m-age1').value)
+            const mage2 = parseInt(document.getElementById('m-age2').value)
+            const mage3 = parseInt(document.getElementById('m-age3').value)
+            const mage4 = parseInt(document.getElementById('m-age4').value)
+            const mage5 = parseInt(document.getElementById('m-age5').value)
+
+            let arrayMorning = [mage1,mage2, mage3, mage4, mage5]
+            let sumaMorning = 0
+            let promedioMorning = 0
+
+            for(i = 0; i < arrayMorning.length; i++){
+                sumaMorning += arrayMorning[i]
+            }
+
+            promedioMorning = (sumaMorning/arrayMorning.length).toFixed(2)
+           
+
+            const aage1 = parseInt(document.getElementById('a-age1').value)
+            const aage2 = parseInt(document.getElementById('a-age2').value)
+            const aage3 = parseInt(document.getElementById('a-age3').value)
+            const aage4 = parseInt(document.getElementById('a-age4').value)
+            const aage5 = parseInt(document.getElementById('a-age5').value)
+            const aage6 = parseInt(document.getElementById('a-age6').value)
+
+            let arrayAfternoon = [aage1, aage2, aage3, aage4, aage5, aage6]
+            let sumaAfternoon = 0
+            let promedioAfternoon = 0
+
+            for(i = 0; i < arrayAfternoon.length; i++){
+                sumaAfternoon += arrayAfternoon[i]
+            }
+
+            promedioAfternoon = (sumaAfternoon/arrayAfternoon.length).toFixed(2)
+           
+
+            const nage1 = parseInt(document.getElementById('n-age1').value)
+            const nage2 = parseInt(document.getElementById('n-age2').value)
+            const nage3 = parseInt(document.getElementById('n-age3').value)
+            const nage4 = parseInt(document.getElementById('n-age4').value)
+            const nage5 = parseInt(document.getElementById('n-age5').value)
+            const nage6 = parseInt(document.getElementById('n-age6').value)
+            const nage7 = parseInt(document.getElementById('n-age7').value)
+            const nage8 = parseInt(document.getElementById('n-age8').value)
+            const nage9 = parseInt(document.getElementById('n-age9').value)
+            const nage10 = parseInt(document.getElementById('n-age10').value)
+            const nage11 = parseInt(document.getElementById('n-age11').value)
+
+            let arrayNight = [nage1, nage2, nage3, nage4, nage5, nage6, nage7, nage8, nage9, nage10, nage11]
+            let sumaNight = 0
+            let promedioNight = 0
+
+            for(i = 0; i < arrayNight.length; i++){
+                sumaNight += arrayNight[i]
+            }
+
+            promedioNight = (sumaNight/arrayNight.length).toFixed(2)
+            
+            let mensaje = ""
+
+            if(promedioMorning > promedioAfternoon && promedioMorning > promedioNight) mensaje = "Turno de la mañana"
+            if(promedioAfternoon > promedioMorning && promedioAfternoon > promedioNight) mensaje = "Turno de la tarde"
+            if(promedioNight > promedioMorning && promedioNight > promedioAfternoon) mensaje = "Turno de la noche"
+
+           document.getElementById('result').innerHTML =
+           "El promedio de los estudiantes de la mañana es " + promedioMorning + ". <br/>" + 
+           "El promedio de los estudiantes de la tarde es " + promedioAfternoon + ". <br/>" + 
+           "El promedio de los estudiantes de la noche es " + promedioNight + ". <br/>" + 
+           "El turno con el promedio mas alto de edad es " + mensaje + ". <br/>"
+
+        }
+    </script>
+</body>
+</html>
+

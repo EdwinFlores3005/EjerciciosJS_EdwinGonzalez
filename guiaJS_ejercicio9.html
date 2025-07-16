@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Conversor</h2>
+    <div>
+        <label for="description">Temperatura en C</label>
+        <input type="number" name="" id="celcius" placeholder="Ej: 25">
+    </div>
+
+    <button onclick="convertir()">Convertir</button>
+    <p id="resultado"></p>
+
+    <script>
+        function convertir()
+        {
+            
+            const celcius = parseFloat(document.getElementById('celcius').value)
+            const farenheit = (celcius * 9/5) + 32
+
+            let mensaje = ""
+            if(farenheit >= 14 && farenheit < 32) mensaje = "Temperatura baja"
+            else if(farenheit >= 32 && farenheit < 68) mensaje = "Temperatura agradable"
+            else if (farenheit >= 68 && farenheit <= 100) mensaje = "Temperatura alta"
+            else mensaje = "Temperatura desconocida"
+
+            document.getElementById('resultado').textContent = `Farenheit: ${farenheit.toFixed(2)} °F - ${mensaje}`
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6</title>
+</head>
+<body>
+    <h1>Ejercicio 6</h1>
+    <p>Ciudad de origen: La Palma</p>
+    <p>Destino:</p>
+    <input type="radio" id="costadelsol" value="Costa Del Sol" name="destino">
+    <label for="costadelsol">Costa Del Sol</label>
+    <input type="radio" id="panchimalco" value="Panchimalco" name="destino">
+    <label for="panchimalco">Panchimalco</label>
+    <input type="radio" id="puerto" value="Puerto el Triunfo" name="destino">
+    <label for="puerto">Puerto el Triunfo</label>
+
+    <p>Precio del viaje:</p>
+    <input type="number" name="price" id="price">
+
+    <button onclick="CalculateDiscount()">Calcular</button>
+
+    <p id="result"></p>
+
+    <script>
+        function CalculateDiscount(){
+            const destiny = document.querySelector('input[name = destino]:checked').value
+            const price = parseInt(document.getElementById('price').value)
+
+            console.log(price)
+            
+            console.log(destiny)
+
+            let newPrice
+            if(destiny == "Costa Del Sol") newPrice = price * 0.95 
+            else if(destiny == "Panchimalco") newPrice = price * 0.9               
+            else if(destiny == "Puerto el Triunfo") newPrice = price * 0.85
+            
+            document.getElementById('result').textContent = "El nuevo precio del viaje es " + newPrice
+            
+
+        }
+    </script>
+</body>
+</html>
+

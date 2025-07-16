@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7</title>
+</head>
+<body>
+    <h1>Ejercicio 7</h1>
+    <p>Por favor introduce el número a calcular:</p>
+    <input type="number" name="number" id="num">
+
+    <button onclick="Tabla()">Calcular</button>
+
+    <ul id="result"></ul>
+
+    <script>
+        function Tabla(){
+            document.getElementById('result').innerHTML = ""
+            const num = parseInt(document.getElementById('num').value)
+            
+
+            for(let i = 1; i <= 10; i++){
+                const list = document.createElement('li')
+                let result = num*i 
+            
+                list.innerHTML = result + "<br/>"
+                document.getElementById('result').appendChild(list)
+                
+                console.log(result)
+            }
+
+        }
+    </script>
+</body>
+</html>
+
